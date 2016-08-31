@@ -14,6 +14,8 @@ class UnpryCommand(sublime_plugin.TextCommand):
     views = self.view.window().views()
     for view in views:
       view.run_command('unpry_view')
+      if view.file_name() != None:
+        view.run_command('save')
 
 class UnpryViewCommand(sublime_plugin.TextCommand):
   def run(self, edit):
@@ -21,8 +23,6 @@ class UnpryViewCommand(sublime_plugin.TextCommand):
     while not region.empty():
       self.view.erase(edit, self.view.full_line(region))
       region = self.findPryRegion()
-    if self.view.file_name() != None:
-      self.view.run_command('save')
 
   def findPryRegion(self):
     return self.view.find(bindingPryStr, 0) or self.view.find(requirePryStr, 0)
