@@ -1,4 +1,4 @@
 [
   { "keys": ["ctrl+b"], "command": "pry" },
-  { "keys": ["shift+ctrl+b"], "command": "unpry" }
+  { "keys": ["super+ctrl+b"], "command": "unpry" }
 ]
