@@ -9,7 +9,7 @@ For OSX/Linux Users:
 - Remove all pry breakpoints: "cmd+ctrl+b"
 
 For Windows Users:
-- Insert pry breakpoint:      "ctrl+alt+b"
-- Remove all pry breakpoints: "cmd+ctrl+b"
+- Insert pry breakpoint:      "ctrl+b"
+- Remove all pry breakpoints: "super+ctrl+b"
 
-**Keybinding are configurable, and can be modified on each platform's sublime-keymap file**
+**IMPORTANT NOTICE: keybinding on Windows overrides the default Sublime keybinding for Tools>Build command**
