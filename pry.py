@@ -9,12 +9,12 @@ class PryCommand(sublime_plugin.TextCommand):
     if self.view.find(requirePryStr, 0).empty():
       self.view.insert(edit, 0, requirePryStr + "\n")
 
-class UnpryCommand(sublime_plugin.TextCommand):
-  def run(self, edit):
-    views = self.view.window().views()
+class UnpryCommand(sublime_plugin.WindowCommand):
+  def run(self):
+    views = self.window.views()
     for view in views:
       view.run_command('unpry_view')
-      if view.file_name() != None:
+      if view.file_name() and view.is_dirty():
         view.run_command('save')
 
 class UnpryViewCommand(sublime_plugin.TextCommand):
